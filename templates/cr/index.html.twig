@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %} {% block title %}CR index{% endblock %} {% block stylesheets %}
+<link rel="stylesheet" href="{{asset("css/style.css")}}"> {% endblock %}{% block body %}
+<div class="bg-image shadow mb-4">
+    <div class="container-fluid">
+        <div class="text-center text-align-center align-items-center text-white text">
+            <h1 class="pt-5">Visit Viennas Nightlife</h1>
+        </div>
+    </div>
+</div>
+<h1 class="text-center">Upcoming Events</h1>
+<div class="container">
+
+
+    <div class="row row-cols-3">
+
+        {% for c_r in c_rs %}
+        <div>
+            <div class="card text-bg-dark mb-2 shadow-lg" style="width: 18rem;">
+                <img src="{{c_r.image}}" class="card-img-top" alt="ACDC" style="width: 100%; max-height:250px;">
+                <div class="card-body" stlye="max-height:150px;">
+                    <h5 class="card-title">{{c_r.name}}</h5>
+                    <p class="card-text">{{c_r.description}}</p>
+                </div>
+                <ul class="list-group list-group-flush ">
+                    <li class="list-group-item text-bg-dark">{{c_r.address}}</li>
+                    <li class="list-group-item text-bg-dark">Date: {{c_r.date|date("F j, Y, g:i a")}}</li>
+
+                </ul>
+                <div class="card-body">
+                    <button class="btn btn-light">
+                <a class="text-dark link-opacity-25-hover link-underline-light" href="{{ path('app_c_r_show', {'id': c_r.id})}}" class="card-link">show more details</a>
+                </button>
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+
+    </div>
+    <a class="btn btn-dark my-5" href="{{ path('app_c_r_new') }}">Create new</a>
+
+</div>
+
+
+
+
+
+{% endblock %}

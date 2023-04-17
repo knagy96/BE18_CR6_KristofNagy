@@ -1,0 +1,6 @@
+{% extends 'base.html.twig' %} {% block title %}New CR{% endblock %} {% block body %}
+<h1 class="text-center text-align-center align-items-center">Create new Event</h1>
+<div class="container">
+    {{ include('cr/_form.html.twig') }}
+</div>
+<a class="btn btn-dark my-5" href="{{ path('app_c_r_index') }}">back to list</a> {% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %} {% block title %}CR{% endblock %} {% block body %}
+<h1></h1>
+<div class="container mb-3">
+    <div class="card mb-3">
+        <img src="{{c_r.image}}" class="card-img-top" alt="..." style="height:30rem">
+        <div class="card-body text-center">
+            <h5 class="card-title">{{c_r.name}}</h5>
+            <p class="card-text">{{c_r.description}}</p>
+            <p class="card-text">Date: {{c_r.date|date("F j, Y, g:i a")}}</p>
+            <p class="card-text">Type: {{c_r.type}}</p>
+            <p class="card-text">Address: {{c_r.address}}</p>
+        </div>
+        <a class="btn btn-dark" href="{{ path('app_c_r_edit', {'id': c_r.id}) }}">Edit</a>
+    </div>
+    {{ include('cr/_delete_form.html.twig') }}
+
+</div>
+
+
+{% endblock %}
